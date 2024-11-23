@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw_data_circle1
+    description: data from Circle (French brand and eco-responsible and etical spotswear)
+    tables:
+      - name: sales
+        identifier: raw_cc_sales
+        description: details about Circle sales
+      - name: stock
+        identifier: raw_cc_stock
+        description: details about Circle stock
+        tests:
+          - unique:
+              column_name: "(model || '_' || color || '_' || size)"
